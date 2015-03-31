@@ -25,18 +25,7 @@ fonction de la méthode HTTP et de l'URL demandée. */
 
 // Ici, pour chaque requete `GET /` (la page d'accueil) ...
 $app->get('/', function() use($app) {
-    // On exécute cette fonction !
-    // Et devinez quoi, cette fonction va afficher le rendu d'un texte en
-    // Markdown !
-
-    $courses = $app['dao.course']->findAll();
-
-    return $app['twig']->render('home/index.html.twig', array(
-        'courses' => $courses
-    ));
-
-    /* J'ai caché pas mal de choses, mais je ne peux pas en dire plus pour le
-    moment ... */
+    return file_get_contents(__DIR__.'/../web/index.html');
 });
 
 $app->get('/editor', function() use($app) {
