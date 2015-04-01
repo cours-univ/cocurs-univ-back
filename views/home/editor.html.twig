@@ -1,0 +1,109 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('/components/highlightjs/styles/github.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('/components/normalize.css/normalize.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/markdown.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/editor/editor.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/editor/colors.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/editor/menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/editor/window.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/editor/z-index.css') }}">
+{% endblock %}
+
+
+{% block container %}
+
+<div id="splashscreen">
+	<img src="img/logo.png">
+</div>
+
+{# 
+	Pour activer un bouton il suffit d"enlever la classe 'off' et de la remplacer la classe 'on'
+	Bien évidement il faut laisser la classe 'button' 
+#}
+<div id="menu" class="hidden">
+
+	<div id="tabulation" class="button toggle off">
+		<span>Tabulation : Tab</span>
+		{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
+		<div class="circle_on_off"></div>
+	</div>
+
+	<div class="dropdown">
+
+		<div class="button click">Dropdown</div>
+
+		<div class="content">
+
+			<div id="autocomplete" class="button toggle off">
+				<span>Autocomplétion</span>
+				{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
+				<div class="circle_on_off"></div>
+			</div>
+
+			<div class="button toggle off">
+				<span>Autre bouton</span>
+				{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
+				<div class="circle_on_off"></div>
+			</div>
+
+			<div class="button click">Autre bouton</div>
+
+		</div>
+	</div>
+
+	<div id="raccourcis" class="button click">Raccourcis</div>
+
+	<div class="hide_buton down">
+		<img src="/img/fleche-noire-haut.png">
+	</div>
+
+</div>
+
+<form id="composer" method="POST">
+    <textarea id="input" name="markup" ></textarea>
+</form>
+<div id="result" ></div>
+
+<!-- Fenetre qui contient les raccourcis -->
+<div class="window hidden" id="shortcuts">
+	<div class="title">
+		<span>Raccourcis</span>
+
+		<div class="close">
+			<span>&#10060;</span>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="text">
+			
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    <script src="{{ asset('/components/highlightjs/highlight.pack.js') }}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript"
+        src="{{ asset('/components/MathJax/MathJax.js') }}">
+    </script>
+    <script type="text/javascript"
+        src="{{ asset('/components/MathJax/config/TeX-AMS-MML_HTMLorMML.js') }}">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['\\(','\\)']]}
+        });
+      </script>
+
+    <script type="text/javascript" data-main="js/editor/main" src="{{ asset('/components/require.js/require.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/components/jquery/dist/jquery.min.js') }}"></script>
+{% endblock %}

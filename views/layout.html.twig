@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <meta charset="UTF-8" />
+        <title>{% block title %}Cours{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('/components/highlightjs/styles/github.css') }}">
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('/components/normalize.css/normalize.css') }}">
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('/css/markdown.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('/css/theme.css') }}">
+        {% endblock %}
+    {% endblock %}
+
+</head>
+<body>
+
+{% block body %}
+
+    <div class="container">
+        {% block container %}{% endblock %}
+    </div>
+
+    {% block javascripts %}
+
+    <script src="{{ asset('/components/highlightjs/highlight.pack.js') }}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script type="text/javascript"
+            src="{{ asset('/components/MathJax/MathJax.js') }}">
+    </script>
+    <script type="text/javascript"
+            src="{{ asset('/components/MathJax/MathJax/config/TeX-AMS-MML_HTMLorMML.js') }}">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['\\(','\\)']]}
+      });
+      </script>
+
+    <script type="text/javascript" src="{{ asset('/components/jquery/dist/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="/js/src/parallax.js"></script>
+
+    {% endblock %}
+
+{% endblock %}
+</body>
+</html>

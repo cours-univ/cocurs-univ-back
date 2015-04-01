@@ -1,0 +1,26 @@
+{
+    "name": "cours-univ",
+    "description": "Site d'hébergement de cours, initialement crée pour l'université Paris 13",
+    "license": "GPL v2",
+    "authors": [
+        {
+            "name": "Loïc Payol",
+            "email": "loicpayol@gmail.com"
+        }
+    ],
+    "require": {
+        "cebe/markdown": "~1.0.1",
+        "ezyang/htmlpurifier": "~4.6",
+        "cocur/slugify": "~1.1",
+        "silex/silex": "~1.2",
+        "twig/twig": "~1.18",
+        "symfony/twig-bridge": "~2.6",
+        "doctrine/dbal": "~2.5",
+        "doctrine/collections": "~1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
