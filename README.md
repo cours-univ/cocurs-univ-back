@@ -25,7 +25,7 @@ Site d'hébergement de cours, initialement crée pour l'université Paris 13
   avoir une base de données de tests.
 * Si vous avez besoin du front-end, clonez `https://github.com/cours-univ/cours-univ-front.git`, et 
   placez le contenu du dossier téléchargé dans `web`, en s'assurant de copier les fichiers et dossiers
-  cachés (`.git/` et `.gitignore` en particulier). Pas de panique, ce que vous venez de copier
+  cachés (`.git/` et `.gitignore` en particulier) : `mv cours-univ-front/.[!.]* web`. Pas de panique, ce que vous venez de copier
   ne sera pas indexé par le repository du backend, celui-ci donc. Il n'a de toute façon aucune raison
   de l'etre. Suivez ensuite les instructions du README dans le dossier `web` pour configurer le front.
 
